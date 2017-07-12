@@ -1,3 +1,4 @@
+[TOC]
 ### CORS enabled image
 
 HTML5中 `<img>`标签的crossOrigin属性，在canvas中使用跨域图片资源需要加上此属性，加上该属性后load该图片时会在RequestHeader中带上Origin, ResponseHeader中会带有`Access-Allow-Origin`信息。
@@ -45,9 +46,15 @@ if ( img.complete || img.complete === undefined ) {
 上述情况下用于canvas中的图不从缓存中取，想办法绕过缓存数据。
 
 
-
 > 相关资料:
 >
 > [https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image)
 >
 > [https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-crossorigin)
+
+
+#### Tips
+在html中使用crossOrigin
+```html
+<img src="xxx.img.jpg" crossorign="anonymous" />
+```
