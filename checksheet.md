@@ -21,7 +21,6 @@
 - [ ] ESLint, StyleLint
 - [ ] 持续集成  自动化测试  自动化部署
 - [ ] 前端加密
-
 ### 编码
 - [ ] 前端框架 React, Vue, Angular ..
 - [ ] 测试框架 Karma + Mocha + Chai， mocha + jasmine protractor CasperJS ...
