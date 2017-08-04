@@ -1,5 +1,15 @@
 ##  Web Developer Skills Checksheet
 
+## 近期任务
+- [ ] webpack
+- [ ] babel
+- [ ] Vue
+- [ ] Vuex
+- [ ] Es6, Es7
+- [ ] linux shell
+
+
+
 ### 工程化
 > `模块化`, `组件化`, `规范化`
 - [ ] gulp grunt
@@ -13,9 +23,9 @@
 - [ ] 前端加密
 
 ### 编码
-- [ ] - [ ] 前端框架 React, Vue, Angular ..
+- [ ] 前端框架 React, Vue, Angular ..
 - [ ] 测试框架 Karma + Mocha + Chai， mocha + jasmine protractor CasperJS ...
-- [ ] Sass Scss Less
+- [ ] Sass Scss Less postcss
 - [ ] html 模板引擎
 - [ ] 函数式编程 RxJs
 - [ ] 状态管理 Flux Redux Vuex
