@@ -113,3 +113,46 @@ npm run test
 ```
 
 > ![](demos/jasmine_karma/public/003.jpeg)
+
+
+
+## 测试覆盖率
+
+> 什么是代码覆盖率？简而言之就是测试中运行到的代码占所有代码的比率。其中又可以分为行数覆盖率，分支覆盖率等。具体的含义不再细说，有兴趣的可以自行查阅资料。
+
+- #### 安装karma 覆盖率工具
+```bash
+npm i --save-dev karma-coverage
+```
+- #### 修改karma.config.js
+```javascript
+{
+    preprocessors: {
+        'src/**/*.js': ['coverage']
+    },
+    reporters: ['progress', 'coverage'],
+}
+```
+> 再运行`npm test`后，会在目录下生成coverage目录，里面有本次测试的覆盖报告。打开后的结果如下
+
+![](demos/jasmine_karma/public/004.png)
+
+覆盖率测试概念上面已经简单介绍，下面微调一下测试代码直观感受一下
+```javascript
+describe('Test if reverse string function work', function () {
+  it('should be true', function () {
+    expect(true).toBe(true);
+  });
+
+  it('should reverse work', function () {
+    expect(reverseString('hello')).toBe('olleh');
+  });
+
+  //这个测试用例改为xit意为跳过这条测试
+  xit('shoule reverse null not valid', function () {
+    expect(reverseString(null)).toBeNull;
+  });
+});
+```
+再运行测试后, 由于`if (!str)`的情况没有被测试到，所以结果变为：
+![](demos/jasmine_karma/public/005.png)
