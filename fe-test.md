@@ -46,7 +46,7 @@ karma init
 ```
 > ![](demos/jasmine_karma/public/002.jpeg)
 
-> - ### 现在我们可以改下 `npm scripts` 加上一些命令行参数
+> - 现在我们可以改下 `npm scripts` 加上一些命令行参数 (optional)
 > ```javascript
 >   "scripts": {
 >    "test": "karma start karma.conf.js --log-level debug --single-run"
@@ -156,3 +156,85 @@ describe('Test if reverse string function work', function () {
 ```
 再运行测试后, 由于`if (!str)`的情况没有被测试到，所以结果变为：
 ![](demos/jasmine_karma/public/005.png)
+
+
+
+## AngularJs 项目中的应用
+
+- ### 依赖
+
+`karma.conf.js`
+
+  ```javascript
+// 添加angular 和 angularMocks依赖，注意不要重复加载，这里测试用例我用了node_modules中的库，而项目中业务代码引用来自bower管理的代码库, 所以exclude中把bower管理的代码库src/public/**/**.js排除, 防止angular.js重复加载。
+files: [
+        'node_modules/angular/angular.js',
+        'node_modules/angular-mocks/angular-mocks.js',
+
+        'src/**/**.js',
+        'test/specs/*.spec.js',
+      ],
+
+
+      // list of files to exclude
+  exclude: [
+        'src/public/**/**.js'
+      ],
+  ```
+
+-  ### Controller 测试 demo
+
+#### 业务代码：
+
+```javascript
+//angular-demo/app.js
+angular.module('app', [])
+  .controller('testCtrl', function ($scope, $http) {
+    $scope.pageTitle = 'This is the page title!';
+    $scope.infos = [];
+    $scope.getInfo = getInfo;
+
+    
+    function getInfo() {
+      $http.get('./mock.json')
+        .then(function (data) {
+          $scope.infos = data;
+        });
+    }
+  });
+```
+
+#### 测试代码：
+
+```javascript
+// test/specs/angular.controller.spec.js
+'use strict';
+describe('测试angularJs controller', function () {
+  describe('test testCtrl', function () {
+    beforeEach(module('app'));
+
+    var scope, ctrl, $compile;
+    //载每个测试用例执行前注入依赖，这里前后的双下划线会被匹配成去掉之后angular中对应的provider
+    beforeEach(inject(function ($controller, $rootScope, _$compile_) {
+      scope = $rootScope.$new();
+      ctrl = $controller('testCtrl', {$scope: scope});
+      $compile = _$compile_;
+    }));
+
+    it('should page title `This is the page title!` in testCtrl', function () {
+      inject(function () {
+        expect(scope.pageTitle).toEqual('This is the page title!');
+      });
+    });
+
+    it('test page contain pageTitle', function () {
+      var element = $compile('<div><h1 ng-bind="pageTitle"></h1></div>')(scope);
+      scope.$digest();
+      expect(element.html()).toContain('This is the page title!');
+    });
+  });
+});
+```
+
+执行结果：
+![](demos/jasmine_karma/public/006.png)

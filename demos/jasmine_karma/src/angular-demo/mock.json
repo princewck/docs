@@ -1,0 +1,11 @@
+[
+  {
+    "name": "mocha"
+  },
+  {
+    "name": "jasmine"
+  },
+  {
+    "name": "karma"
+  }
+]
