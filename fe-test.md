@@ -1,10 +1,10 @@
-### 测试开发模式
-#### TDD：测试驱动开发（Test-Driven Development）
+## 测试开发模式
+### TDD：测试驱动开发（Test-Driven Development）
 > 测试驱动开发是敏捷开发中的一项核心实践和技术，也是一种设计方法论。TDD的原理是在开发功能代码之前，先编写单元测试用例代码，测试代码确定需要编写什么产品代码。TDD的基本思路就是通过测试来推动整个开发的进行，但测试驱动开发并不只是单纯的测试工作，而是把需求分析，设计，质量控制量化的过程。TDD首先考虑使用需求（对象、功能、过程、接口等），主要是编写测试用例框架对功能的过程和接口进行设计，而测试框架可以持续进行验证。
-#### BDD：行为驱动开发（Behavior Driven Development）
+### BDD：行为驱动开发（Behavior Driven Development）
 >行为驱动开发是一种敏捷软件开发的技术，它鼓励软件项目中的开发者、QA和非技术人员或商业参与者之间的协作。主要是从用户的需求出发，强调系统行为。BDD最初是由Dan North在2003年命名，它包括验收测试和客户测试驱动等的极限编程的实践，作为对测试驱动开发的回应。
 
-### 测试框架
+## 测试框架
 - [nightwatch](http://nightwatchjs.org/guide/#usage)
 - [mocha](http://mochajs.org/)
 - [jasmine](https://jasmine.github.io/)
@@ -13,6 +13,103 @@
 - [testcafe](https://devexpress.github.io/testcafe/)
 - [codecept](http://codecept.io/)
 
-### code fregments
+## 实践 => jasmine + karma(test runner)
+>见 `./demos/jasmine_karma`
+
+### Karma 简单介绍
+karma是一个test runner, 即通过nodeJs启动了一个本地服务器，它有启动或捕获运行中浏览器的功能，并让每一个连接到这个服务器的浏览器执行测试代码，每个浏览器对测试代码的执行结果会反馈给这个本地服务器并以命令行log的形式告诉开发者某个浏览器执行某个测试是否成功。
+> test runner 捕获浏览器并让其执行测试的两种方法
+> 1. 手动打开浏览器输入地址访问，e.g. http://localhost:9876/
+> 2. 在配置文件中指定需要启动的浏览器 `browsers: ['Chrome']`, 这里需要注意的是，需要为指定的浏览器安装lanucher插件，例如`npm install karma-chrome-launcher --save-dev`
+
+### 环境配置
+- #### 安装依赖
+```bash
+#初始化项目
+npm init -y
+# 安装依赖
+npm install karma --save-dev
+npm install karma-jasmine karma-chrome-launcher jasmine-core --save-dev
+```
+- ####  npm scripts
+```javascript
+  "scripts": {
+    "test": "karma start"
+  },
+```
+> 安装完成后可在项目路径下执行 npm test 查看是否安装成功
+> ![](demos/jasmine_karma/public/001.jpeg)
+
+- ### karma 配置
+```bash
+karma init 
+```
+> ![](demos/jasmine_karma/public/002.jpeg)
+
+> - ### 现在我们可以改下 `npm scripts` 加上一些命令行参数
+> ```javascript
+>   "scripts": {
+>    "test": "karma start karma.conf.js --log-level debug --single-run"
+>   },
+> ```
+>  karma 默认会在项目路径下寻找karma.conf.js 或 karma.conf.coffee作为配置文件
+> 使用命令行参数可以覆盖配置项中的配置
 
 
+
+## 编写测试
+
+这里是一个最简单的例子
+
+####  依赖
+
+- 需要安装一个reporter, 才能在控制台详尽打印测试报告，这里用karma-mocha-reporter
+
+```bash
+npm install karma-mocha-reporter --save-dev
+```
+
+- karma.conf.js 设置reporter
+```javascript
+  reporters: ['mocha'],
+```
+#### 业务代码
+
+`/src/app.js`
+
+```javascript
+function reverseString(str) {
+  if (!str) return str;
+  return str.split('').reverse().join('');
+}
+```
+
+#### 编写测试
+
+`/test/specs/reverse.spec.js`
+
+```javascript
+describe('Test if reverse string function work', function () {
+  it('should be true', function () {
+    expect(true).toBe(true);
+  });
+
+  it('should reverse work', function () {
+    expect(reverseString('hello')).toBe('olleh');
+  });
+
+  it('shoule reverse null not valid', function () {
+    expect(reverseString(null)).toBeNull;
+  });
+});
+```
+
+> 这里用Jasmine编写测试，具体api可以查看官网 [https://jasmine.github.io](https://jasmine.github.io)
+
+## 运行测试
+
+```bash
+npm run test
+```
+
+> ![](demos/jasmine_karma/public/003.jpeg)
