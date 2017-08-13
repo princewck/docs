@@ -362,4 +362,67 @@ protractor ./e2e.config.js
 运行后即可看到执行结果，执行过程中浏览器窗口会一闪而过，迅速打开完成测试操作
 ![](demos/jasmine_karma/public/007.gif)
 
+### 测试报告
+
+我们还可以通过添加 reporter 生成更精美的网页测试报告, 这里我使用了`protractor-jasmine2-html-reporter`, 他会为每一个用例截图并生成html测试报告.
+
+- #### 首先添加依赖
+```bash
+npm i jasmine2-html-reporter --save-dev
+```
+- #### 修改protractor的配置文件,增加reporter
+```javascript
+const Jasmine2HtmlReporter = require('protractor-jasmine2-html-reporter');
+const path = require('path');
+exports.config = {
+  seleniumAddress: 'http://localhost:4444/wd/hub',
+  specs: ['test/e2e/test-spec.js'],
+  capabilities: {
+    'browserName': 'chrome'
+  },
+  jasmineNodeOpts: {
+    showColors: true, // Use colors in the command line report.
+  },
+  onPrepare: function () {
+    // Add a screenshot reporter and store screenshots to `/tmp/screnshots`:
+    jasmine.getEnv().addReporter(new Jasmine2HtmlReporter({
+      savePath: path.resolve(__dirname, './test/screenshots')
+    }));
+  }
+};
+```
+> 再运行npm test-e2e, 结束后可以看到test目录下多了screenshots目录，打开里面的htmlReport.html即可看到html测试报告和截图。
+>
+> ![](demos/jasmine_karma/public/008.png)
+
+- #### 每次都手动打开报告太麻烦，可以把它自动化
+
+##### 编写自动打开网页的脚本openreport.js
+
+  ```javascript
+  // feat: 自动打开测试报告. 下面exex中的文件路径需要和protractor配置文件中报告输出位置一致
+  var c = require('child_process');
+  var path = require('path');
+
+if (process.platform == 'wind32') {
+  cmd = 'start "%ProgramFiles%\Internet Explorer\iexplore.exe"';
+} else if (process.platform == 'linux') {
+  cmd = 'xdg-open';
+} else if (process.platform == 'darwin') {
+  cmd = 'open';
+}
+
+c.exec(`${cmd} "${path.resolve('file://', __dirname, '../test/screenshots/htmlReport.html')}"`);
+  ```
+
+##### 改一下npm script
+
+```javascript
+  "scripts": {
+    "test-e2e": "protractor ./e2e.config.js && node dev/openreport.js"
+  },
+```
+
+> 效果动图:
+> ![](demos/jasmine_karma/public/009.gif)
 

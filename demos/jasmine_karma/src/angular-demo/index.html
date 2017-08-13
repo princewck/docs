@@ -7,9 +7,9 @@
   <title>AngularJs单元测试</title>
 </head>
 <body ng-controller="testCtrl">
-  <h1 ng-bind="pageTitle"></h1>
+  <h1 id="abc" ng-bind="pageTitle"></h1>
   <ul>
-    <li ng-repeat="info in infos"> {{ info.name }} </li>
+    <li ng-repeat="info in infos"><input type="checkbox" ng-model="info.checked" /> {{ info.name }} </li>
   </ul>
   <button class="get-info-btn" ng-click="getInfo()">get infos</button>
   <script src="../public/angular/angular.min.js"></script>

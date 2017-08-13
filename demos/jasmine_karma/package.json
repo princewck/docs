@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start karma.conf.js --single-run",
-    "test-e2e": "protractor ./e2e.config.js"
+    "test-e2e": "protractor ./e2e.config.js && node dev/openreport.js"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,8 @@
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.1.0",
     "karma-mocha-reporter": "^2.2.3",
-    "protractor": "^5.1.2"
+    "protractor": "^5.1.2",
+    "protractor-jasmine2-html-reporter": "0.0.7",
+    "protractor-screenshot-reporter": "0.0.5"
   }
 }
