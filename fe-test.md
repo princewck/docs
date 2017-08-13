@@ -13,7 +13,8 @@
 - [testcafe](https://devexpress.github.io/testcafe/)
 - [codecept](http://codecept.io/)
 
-## 实践 => jasmine + karma(test runner)
+## 实践一 => 单元测试： jasmine + karma(test runner)
+
 >见 `./demos/jasmine_karma`
 
 ### Karma 简单介绍
@@ -186,6 +187,28 @@ files: [
 
 #### 业务代码：
 
+```html
+<!-- angular-demo/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>AngularJs单元测试</title>
+</head>
+<body ng-controller="testCtrl">
+  <h1 ng-bind="pageTitle"></h1>
+  <ul>
+    <li ng-repeat="info in infos"> {{ info.name }} </li>
+  </ul>
+  <button ng-click="getInfo()">get infos</button>
+  <script src="../public/angular/angular.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
+```
+
 ```javascript
 //angular-demo/app.js
 angular.module('app', [])
@@ -198,10 +221,11 @@ angular.module('app', [])
     function getInfo() {
       $http.get('./mock.json')
         .then(function (data) {
-          $scope.infos = data;
+          $scope.infos = data.data;
         });
     }
   });
+  angular.bootstrap(document, ['app']);
 ```
 
 #### 测试代码：
@@ -238,3 +262,104 @@ describe('测试angularJs controller', function () {
 
 执行结果：
 ![](demos/jasmine_karma/public/006.png)
+
+
+
+## 实践二 =>e2e test:  protractor + karma 
+
+> 端对端测试(end to end test)或UI测试 ，是一种黑盒测试，不考虑程序内部逻辑和实现，只考虑目标行为是否符合预期，例如点击某个按钮等交互后是否能从页面上获得期望的执行结果。
+
+### 依赖
+
+```bash
+# protractor也可以全局安装,这里选择安装在项目路径中
+npm install  protractor karma --save-dev 
+#更新webdriver需要的jar包
+./node_modules/.bin/webdriver-manager update 
+#测试安装结果
+./node_modules/.bin/webdriver-manager start
+```
+
+### 准备可访问的被测试页面
+
+```javascript
+# /dev/servers.js
+const express = require('express')
+const app = express()
+
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+});
+app.use(express.static('./src'));
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+});
+```
+
+> node /dev/server.js 启动本地开发服务器，即可以通过localhost:3000/angular-demo访问到angular demo 的静态资源页面
+
+### protractor 配置
+
+```javascript
+// e2e.config.js u can customize this name
+exports.config = {
+  seleniumAddress: 'http://localhost:4444/wd/hub',
+  //把要测试的测试用例包含在下面的数组中
+  specs: ['test/e2e/test-spec.js'],
+  // capabilities: {
+  //   'browserName': 'phantomjs',
+  //   'phantomjs.binary.path': require('phantomjs').path
+  // }
+  // 更多配置请阅读官网api
+};
+```
+
+
+
+### 编写测试脚本
+
+```javascript
+// test/e2e/test-spec.js
+describe('angularjs homepage add info', function() {
+  it('should add 3 infos', function() {
+    browser.get('http://localhost:3000/angular-demo');
+
+    var infos = element.all(by.repeater('info in infos'));
+    expect(infos.count()).toEqual(0);
+
+    element(by.css('get-info-btn')).click();
+    var infos = element.all(by.repeater('info in infos'));
+    expect(infos.count()).toEqual(3);
+  });
+});
+```
+
+>  具体测试用例的编写可以参考jasmine和protractor的api
+
+### 运行测试
+
+运行测试前请先确保被测试网站可访问，并且webdriver服务启动
+
+```bash
+node dev/server.js
+./node_modules/.bin/webdriver-manager start
+```
+
+执行以下命令开启测试
+
+```bash
+protractor ./e2e.config.js
+```
+
+如果没有全局安装protractor（本例中就没有），可以集成到npm scripts中
+
+```javascript
+  "scripts": {
+    "test-e2e": "protractor ./e2e.config.js"
+  }
+```
+
+运行后即可看到执行结果，执行过程中浏览器窗口会一闪而过，迅速打开完成测试操作
+![](demos/jasmine_karma/public/007.gif)
+
+

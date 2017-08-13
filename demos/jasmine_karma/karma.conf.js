@@ -19,7 +19,7 @@ module.exports = function(config) {
       'node_modules/angular-mocks/angular-mocks.js',
 
       'src/**/**.js',
-      'test/specs/*.spec.js',
+      'test/unit/*.spec.js',
     ],
 
 

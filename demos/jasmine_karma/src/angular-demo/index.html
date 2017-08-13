@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>AngularJs单元测试</title>
 </head>
-<body>
+<body ng-controller="testCtrl">
   <h1 ng-bind="pageTitle"></h1>
   <ul>
-    <li ng-repeat=""></li>
+    <li ng-repeat="info in infos"> {{ info.name }} </li>
   </ul>
-  <button ng-click="getInfo()">get infos</button>
+  <button class="get-info-btn" ng-click="getInfo()">get infos</button>
   <script src="../public/angular/angular.min.js"></script>
   <script src="./app.js"></script>
 </body>

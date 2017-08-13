@@ -8,7 +8,8 @@ angular.module('app', [])
     function getInfo() {
       $http.get('./mock.json')
         .then(function (data) {
-          $scope.infos = data;
+          $scope.infos = data.data;
         });
     }
   });
+  angular.bootstrap(document, ['app']);
