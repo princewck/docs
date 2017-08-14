@@ -1,2 +1,6 @@
 node_modules
 bower_components
+./*/node_modules
+./*/bower_components
+demos/jasmine_karma/coverage/
+demos/jasmine_karma/test/screenshots/

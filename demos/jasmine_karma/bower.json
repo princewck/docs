@@ -1,0 +1,21 @@
+{
+  "name": "jasmine_karma",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "wangchengkai <princewck@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/princewck/docs",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/public",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.5"
+  }
+}

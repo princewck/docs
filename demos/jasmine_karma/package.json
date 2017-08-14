@@ -1,0 +1,26 @@
+{
+  "name": "jasmine_karma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start karma.conf.js --single-run",
+    "test-e2e": "protractor ./e2e.config.js && node dev/openreport.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "angular": "^1.6.5",
+    "angular-mocks": "^1.6.5",
+    "jasmine-core": "^2.7.0",
+    "karma": "^1.7.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-mocha-reporter": "^2.2.3",
+    "protractor": "^5.1.2",
+    "protractor-jasmine2-html-reporter": "0.0.7",
+    "protractor-screenshot-reporter": "0.0.5"
+  }
+}
