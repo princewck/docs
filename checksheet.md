@@ -32,7 +32,6 @@
 - [ ] DI, AOP
 
 ### 计算机基础
-- [ ] linux shell
 - [ ] 网络相关
 - [ ] Https
 - [ ] 密码学
@@ -44,3 +43,8 @@
 - [ ] Java
 - [ ] Apache Nginx Load-balance Docker
 - [ ] Websocket
+
+### 运维
+- Linux
+- Docker Swarm Kubernetes
+- Nginx Load-balance SLB架构
