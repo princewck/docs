@@ -43,6 +43,13 @@
 ### 后端
 - [ ] Node.js Express Koa Egg
 - [ ] Java
-- [ ] Apache Nginx Load-balance Docker
 - [ ] Websocket
 - [ ] MongoDB Redis Mysql
+
+### 运维
+- [ ] Linux
+- [ ] Docker Swarm Kubernetes
+- [ ] Nginx Load-balance SLB架构
+- [ ] Apache
+- [ ] Docker
+
