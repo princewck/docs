@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start karma.conf.js --single-run",
-    "test-e2e": "protractor ./e2e.config.js && node dev/openreport.js"
+    "test-e2e": "webdriver-manager update && webdriver-manager start && protractor ./e2e.config.js && node dev/openreport.js"
   },
   "keywords": [],
   "author": "",

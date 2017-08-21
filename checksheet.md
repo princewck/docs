@@ -22,14 +22,15 @@
 - [ ] 持续集成  自动化测试  自动化部署
 - [ ] 前端加密
 ### 编码
-- [ ] 前端框架 React, Vue, Angular ..
+- [ ] AngularJS Angular 2+
+- [ ] React, Redux, Redux,  web app同构技术
+- [ ] Vue Vuex
 - [ ] 测试框架 Karma + Mocha + Chai， mocha + jasmine protractor CasperJS ...
 - [ ] Sass Scss Less postcss
 - [ ] html 模板引擎
 - [ ] 函数式编程 RxJs
-- [ ] 状态管理 Flux Redux Vuex
 - [ ] Es6, Es7
-- [ ] DI, AOP
+- [ ] DI, AOP, 多态, 反射
 
 ### 计算机基础
 - [ ] linux shell
@@ -44,3 +45,4 @@
 - [ ] Java
 - [ ] Apache Nginx Load-balance Docker
 - [ ] Websocket
+- [ ] MongoDB Redis Mysql
