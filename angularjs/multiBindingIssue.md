@@ -11,7 +11,7 @@ controller中，在$rootScope上使用$on监听$stateXxx一类的事件时，每
 
 >一个示例（可能不是最好的办法
 > ```javascript
->  function stateChangeHandler()
+>  function stateChangeHandler() {
 >    alert($stateParams.count)
 >  }
 >  function stateChangeDeregister() {
