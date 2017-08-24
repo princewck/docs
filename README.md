@@ -11,3 +11,5 @@
 - ### [文本选择api(常用于富文本编辑器)](select-range.md)
 - ### [img 标签的crossorigin属性，canvas作图遇到的坑](drawImage-cross-origin.md)
 
+- ### angularJs
+  - [在$rootScope上使用$on监听路由事件的小问题和注意点](angularjs/multiBindingIssue.md)
