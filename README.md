@@ -3,8 +3,8 @@
  > [github](https://github.com/princewck/docs)
 
 ## 一个不全的清单和计划
-[checksheet](checksheet.md)
-[webpack 参考](webpack.md)
+- [checksheet](checksheet.md)
+- [webpack 参考](webpack.md)
 
 ## 技术实践和遇到的问题
 - ### [前端测试初探](fe-test.md)
