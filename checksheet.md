@@ -6,7 +6,7 @@
 - [ ] Vue
 - [ ] Vuex
 - [ ] Es6, Es7
-- [ ] linux shell
+- [x] linux shell
 
 
 
