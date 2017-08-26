@@ -625,4 +625,6 @@ new webpack.HotModuleReplacementPlugin({
 
 ### 参考资料
 
+[Webpack中文文档](https://doc.webpack-china.org/concepts/)
+
 [入门 Webpack，看这篇就够了](https://segmentfault.com/a/1190000006178770)
