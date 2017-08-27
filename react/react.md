@@ -1,5 +1,5 @@
 ###  react stack cheat sheet
 
-![react cheat sheet](./react-cheat-sheet.jpg)
+![react cheat sheet](./React-cheat-sheet.jpg)
 
-![redux cheat sheet](./redux-cheat-sheet.jpg)
+![redux cheat sheet](./Redux-cheat-sheet.jpg)
