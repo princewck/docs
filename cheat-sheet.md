@@ -1,4 +1,4 @@
-##  Web Developer Skills Checksheet
+##  Web Developer Skills Cheat Sheet
 
 ## 近期任务
 - [ ] webpack
