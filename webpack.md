@@ -256,7 +256,7 @@ devServer: {
       { from: /./, to: '/views/404.html' }
     ]
   },
- 
+
   host: '127.0.0.2', //指定host地址，默认localhost
   hot: true, //Enable webpack's Hot Module Replacement feature
   https: true,
@@ -268,7 +268,7 @@ devServer: {
     warnings: true,
     errors: true
   },
- 
+
   //usage1
   proxy: {
       "/api": {
@@ -287,7 +287,7 @@ devServer: {
       target: "localhost:3000"
     }
   ]
- 
+
   // 获取Express中的app具柄，可以用来自定义中间件
   setup(app) {
       app.get('/some/path', function (req, res) {
@@ -334,7 +334,7 @@ devServer: {
 > - CLI：在 shell 命令中指定它们。
 >
 >
-> *⚠️ loader的处理纬度是文件，有点类似gulp一类的任务构建方式*。
+> *⚠️ loader的处理维度是文件，有点类似gulp一类的任务构建方式*。
 
 > [Loaders 列表](https://doc.webpack-china.org/loaders/)
 
@@ -440,7 +440,7 @@ module: {
 
 
 
-####CSS预处理器
+#### CSS预处理器
 
 > 常用： less-loader, sass-loader, stylus-loader, posts-loader
 
@@ -799,7 +799,7 @@ new ManifestPlugin({
 
 [更多配置…](https://github.com/danethurber/webpack-manifest-plugin)
 
-#### webpack.optimize.UglifyJsPlugin 
+#### webpack.optimize.UglifyJsPlugin
 
 用于压缩js文件。此插件支持所有的 [UglifyJS 选项](https://github.com/mishoo/UglifyJS2#usage)
 
@@ -851,7 +851,7 @@ module.exports = {
        new webpack.optimize.UglifyJsPlugin({
          compress: env.production // 只在生产环境构建时压缩
         })
-      ]  
+      ]
     };
   };
   ```
@@ -1113,9 +1113,9 @@ module.exports = Merge(CommonConfig, {
 
 ### 参考资料
 
-[Webpack中文](https://doc.webpack-china.org/)
-[入门 Webpack，看这篇就够了](https://segmentfault.com/a/1190000006178770)
-[Plugins List](https://doc.webpack-china.org/plugins/)
-[Loaders List](https://doc.webpack-china.org/loaders/)
-[webpack & HTTP/2](https://medium.com/webpack/webpack-http-2-7083ec3f3ce6)
-[The Fine Art of the Webpack 3 Config](https://blog.flennik.com/the-fine-art-of-the-webpack-2-config-dc4d19d7f172)
+- [Webpack中文](https://doc.webpack-china.org/)
+- [入门 Webpack，看这篇就够了](https://segmentfault.com/a/1190000006178770)
+- [Plugins List](https://doc.webpack-china.org/plugins/)
+- [Loaders List](https://doc.webpack-china.org/loaders/)
+- [webpack & HTTP/2](https://medium.com/webpack/webpack-http-2-7083ec3f3ce6)
+- [The Fine Art of the Webpack 3 Config](https://blog.flennik.com/the-fine-art-of-the-webpack-2-config-dc4d19d7f172)
