@@ -740,7 +740,7 @@ npm install clean-webpack-plugin --save-dev
 ```javascript
   const path = require('path');
   const HtmlWebpackPlugin = require('html-webpack-plugin');
-+ const CleanWebpackPlugin = require('clean-webpack-plugin');
+ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
   module.exports = {
     entry: {
@@ -820,6 +820,58 @@ module.exports = {
   ]
 };
 ```
+
+#### webpack.ProvidePlugin
+> 自动加载模块，而不必到处 import 或 require 。
+```javascript
+new webpack.ProvidePlugin({
+  identifier: ['模块', '属性'],
+})
+/** 注意⚠️：对于es6 export default 导出的模块，需要指定default
+  *{
+  *    identifier: ['module', 'default]
+  *  }
+  */
+```
+
+使用jQuery:
+```javascript
+new webpack.ProvidePlugin({
+  $: 'jquery',
+  jQuery: 'jquery'
+})
+```
+在任意源码中
+```javascript
+// in a module
+$('#item'); // <= 起作用
+jQuery('#item'); // <= 起作用
+// $ 自动被设置为 "jquery" 输出的内容
+```
+- 例子： Angular 1中使用jquery
+```javascript
+new webpack.ProvidePlugin({
+  'window.jQuery': 'jquery'
+})
+```
+
+#### CommonsChunkPlugin
+CommonsChunkPlugin插件，是一个可选的用于建立一个独立文件(又称作 chunk)的功能，这个文件包括多个入口 chunk 的公共模块。通过将公共模块拆出来，最终合成的文件能够在最开始的时候加载一次，便存起来到缓存中供后续使用。这个带来速度上的提升，因为浏览器会迅速将公共的代码从缓存中取出来，而不是每次访问一个新页面时，再去加载一个更大的文件。
+
+```javascript
+new webpack.optimize.CommonsChunkPlugin(options)
+```
+
+例子：
+
+```javascript
+new webpack.optimize.CommonsChunkPlugin({
+  name: 'common',
+  minChunks: Infinity,
+  filename: '[name].js',
+}),
+```
+
 
 
 ###  配置文件的多种配置类型
