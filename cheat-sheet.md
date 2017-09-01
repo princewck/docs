@@ -23,7 +23,7 @@
 - [ ] 前端加密
 ### 编码
 - [ ] AngularJS Angular 2+
-- [ ] React, Redux, Redux,  web app同构技术
+- [ ] React, Redux, Redux, 服务端渲染，web app同构技术
 - [ ] Vue Vuex
 - [ ] Sass Scss Less postcss
 - [ ] html 模板引擎
