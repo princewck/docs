@@ -25,12 +25,15 @@
 - [ ] AngularJS Angular 2+
 - [ ] React, Redux, Redux,  web app同构技术
 - [ ] Vue Vuex
-- [ ] 测试框架 Karma + Mocha + Chai， mocha + jasmine protractor CasperJS ...
 - [ ] Sass Scss Less postcss
 - [ ] html 模板引擎
 - [ ] 函数式编程 RxJs
 - [ ] Es6, Es7
 - [ ] DI, AOP, 多态, 反射
+### 测试
+- [ ] js测试框架 Karma + Mocha + Chai， mocha + jasmine protractor CasperJS ...
+- [ ] Selenium2 浏览器自动化 WebDriverIO
+
 
 ### 计算机基础
 - [ ] linux shell
@@ -49,7 +52,7 @@
 ### 运维
 - [ ] Linux
 - [ ] Docker Swarm Kubernetes
-- [ ] Nginx Load-balance SLB架构
+- [ ] Nginx Load-balance SLB VPC
 - [ ] Apache
 - [ ] Docker
 
