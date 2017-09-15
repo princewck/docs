@@ -1,20 +1,17 @@
 ##  Web Developer Skills Cheat Sheet
 
 ## 近期任务
-- [ ] webpack
-- [ ] babel
-- [ ] Vue
 - [ ] Vuex
-- [ ] Es6, Es7
-- [x] linux shell
-
-
+- [ ] Redux Redux-saga Redux-promise | dva | Mobx
+- [ ] new Angular
+- [ ] docker
+- [ ] ssh advance, e.g. ssh tunnel
 
 ### 工程化
 > `模块化`, `组件化`, `规范化`
-- [ ] gulp grunt
-- [ ] webpack
-- [ ] babel
+- [x][] gulp grunt
+- [x][] webpack
+- [x] babel
 - [ ] Typescript flow
 - [ ] require.js sea.js browserify.js SystemJS
 - [ ] phantomjs
@@ -22,13 +19,14 @@
 - [ ] 持续集成  自动化测试  自动化部署
 - [ ] 前端加密
 ### 编码
-- [ ] AngularJS Angular 2+
+- [ ] AngularJS
+- [ ] Angular 2/4
 - [ ] React, Redux, Redux, 服务端渲染，web app同构技术
 - [ ] Vue Vuex
 - [ ] Sass Scss Less postcss
 - [ ] html 模板引擎
 - [ ] 函数式编程 RxJs
-- [ ] Es6, Es7
+- [x][] Es6, Es7
 - [ ] DI, AOP, 多态, 反射
 ### 测试
 - [ ] js测试框架 Karma + Mocha + Chai， mocha + jasmine protractor CasperJS ...
