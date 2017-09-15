@@ -13,17 +13,17 @@
 - [x][] webpack
 - [x] babel
 - [ ] Typescript flow
-- [ ] require.js sea.js browserify.js SystemJS
+- [x] require.js sea.js browserify.js SystemJS
 - [ ] phantomjs
-- [ ] ESLint, StyleLint
+- [x] ESLint, StyleLint
 - [ ] 持续集成  自动化测试  自动化部署
 - [ ] 前端加密
 ### 编码
-- [ ] AngularJS
+- [x][x] AngularJS
 - [ ] Angular 2/4
-- [ ] React, Redux, Redux, 服务端渲染，web app同构技术
-- [ ] Vue Vuex
-- [ ] Sass Scss Less postcss
+- [x] React, Redux, Redux, 服务端渲染，web app同构技术
+- [x] Vue Vuex
+- [x] Sass Scss Less postcss
 - [ ] html 模板引擎
 - [ ] 函数式编程 RxJs
 - [x][] Es6, Es7
@@ -34,7 +34,7 @@
 
 
 ### 计算机基础
-- [ ] linux shell
+- [x] linux shell
 - [ ] 网络安全
 - [ ] Https
 - [ ] 密码学
@@ -42,15 +42,22 @@
 
 
 ### 后端
-- [ ] Node.js Express Koa Egg
-- [ ] Java
+- [x] Node.js Express
+- [ ] Koa Egg
+- [x] Java
 - [ ] Websocket
-- [ ] MongoDB Redis Mysql
+- [ ] MongoDB Redis
+- [x] Mysql
 
 ### 运维
-- [ ] Linux
-- [ ] Docker Swarm Kubernetes
+- [x] Linux
+- [ ] Swarm Kubernetes
 - [ ] Nginx Load-balance SLB VPC
 - [ ] Apache
 - [ ] Docker
 
+> ### 掌握程度等级
+> - [] 未知
+> - [x] 了解
+> - [x][x] 掌握
+> - [x][x][x] 掌握较好
