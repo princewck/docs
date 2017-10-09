@@ -1,11 +1,10 @@
 ##  Web Developer Skills Cheat Sheet
 
 ## 近期任务
-- [ ] Vuex
-- [ ] Redux Redux-saga Redux-promise | dva | Mobx
+- [1] Redux Redux-saga Redux-promise | dva | Mobx
 - [ ] new Angular
-- [ ] docker
-- [ ] ssh advance, e.g. ssh tunnel
+- [ ] RxJs
+- [1] docker
 
 ### 工程化
 > `模块化`, `组件化`, `规范化`
@@ -25,12 +24,13 @@
 - [1] Vue Vuex
 - [1] Sass Scss Less postcss
 - [ ] html 模板引擎
-- [ ] 函数式编程 RxJs
+- [ ] 函数式编程
 - [1] Es6, Es7
 - [ ] DI, AOP, 多态, 反射
 ### 测试
-- [ ] js测试框架 Karma + Mocha + Chai， mocha + jasmine protractor CasperJS ...
+- [1] js测试框架 Karma + Mocha + Chai， mocha + jasmine protractor CasperJS ...
 - [ ] Selenium2 浏览器自动化 WebDriverIO
+- [1] puppeteer
 
 
 ### 计算机基础
@@ -43,7 +43,8 @@
 
 ### 后端
 - [x] Node.js Express
-- [ ] Koa Egg
+- [1] Koa
+- [ ] Egg
 - [1] Java
 - [ ] Websocket
 - [ ] MongoDB Redis
@@ -54,7 +55,7 @@
 - [ ] Swarm Kubernetes
 - [ ] Nginx Load-balance SLB VPC
 - [ ] Apache
-- [ ] Docker
+- [1] Docker
 
 > ### 掌握程度等级
 > - [ ] 未知
